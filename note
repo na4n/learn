@@ -1,0 +1,100 @@
+Intro to DB Systems
+---
+design/implmentation of dbms
+
+
+1. Relational Model & Algebra
+---
+db: collection of ordered data modelling real-world
+dbms: software that allows apps to store/analyze information in a db
+ - supports definition,creation,querying,update,administration of db according to data model
+data model: abstract way to describe data in db
+schema: description of collection of data, uses data model
+ - structure of data for data model
+
+data model types
+ - relational -> most dbms
+ - key/value -> simple apps/caching
+ - graph ---------------------|
+ - document/json/xml/object --|-> nosql
+ - wide-column/column-family -|
+ - array (vector,matrix,tensor) -> ml/science
+ - hiearchical ---------|
+ - network -------------|-> obsolete/legacy
+ - semantic ------------|
+ - entity-relationship -|
+
+early dbms
+ - computers expensive, humans cheap
+   - rewrite code ok, tight coupling between logical and physical layers 
+   - underlying data structure rewritten for new queries
+     - query known beforehand
+
+relational model: abstraction for db based on relations
+ - store db in simple structures (relations) -> hidden from app. code
+ - storage left to dbms implementation
+ - data access with high level language, dbms handles best way to implement
+
+ - structure - definition of relations independent from physical representation
+ - integrity - ensure db contents satisfy constraints
+ - manipulation - interface for access/modification of contents
+
+data independence
+ - isolate application from low-level data reprsentation
+ - dbms optimizes layout for operating environment, db contents, workload
+ - dbms can re-optimize if factors change
+
+
+
+    Application         Application
+        |                   |
+    External Schema     External Schema  [Views (SQL), same table laid out differently]
+        \___             ___/
+            Logical Schema     <- Logical Data Independence (don't care how tables are stored)
+                  |                 {schema, constraints}
+            Physical Schema    <- Physical Data Independence (don't care how bits are laid out/data is stored)
+                  |                 {pages,files,extents}
+            Database Storage
+
+
+
+relation: unordered set with relationship of attributes representing data
+ - n-ary relation = table with n columns
+tuple: set of attribute values in relation
+ - values are atomic/scalar (now relaxed constraint)
+ - null value
+
+relation primary key: set of attributes that unqiuely identify a single tuple
+ - some dbms create internally if table does not define one
+
+foreign key: attribute from one relation maps to tuple in another relation
+
+constraints
+ - user defined conditions that must hold for any instance in db
+   - validate data in tuple or across relation
+   - dbms prevents constraint violeation
+
+ - unique key + referential (foreign key) constraints are most common
+
+Data Manipulation Language (DML)
+ - api dbms exposes to app.s to store/retrieve data
+ - procedural: query specifies high level strategy to find desired result based on sets/bags <- relational algebra :(
+ - non-procedural (declarative): query specifies data wanted, not how to find <- relational calculus :) (SQL)
+
+relational algebra
+ - select: choose subset of tuples from relation that satisfy selection predicate
+   - filter to retain tuples that fulfill requirement
+   - combine multiple predicate with conjunction/disjunction
+ - projection: produce relation with tuples containing specified attribute
+   - rearrange attributes ordering
+   - remove unwanted attributes
+   - manipulate values for new derived attributes
+ - union
+   - generate relation with all tuples in one or both input relations
+   - relations require same attributes (concatenation)
+ - difference
+   - relation with tuple sin first but not second input relations
+ - product
+   - relation that contains all possible combinations of tuples form input relations
+ - join: relation that contains all tuples that are combination of two tuples with common values for one/more attribute
+ 
