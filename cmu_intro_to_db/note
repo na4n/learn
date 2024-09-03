@@ -99,5 +99,35 @@ relational algebra
  - join: relation that contains all tuples that are combination of two tuples with common values for one/more attribute
 
  - describes high level steps to compute query
+   - better approach is high level query that lets dbms figure out approach
 
+relational model: queries
+ - relational model != query language implementation
+   - SQL is *de fact* query language
+
+document data model
+ - json/xml, object-oriented data
+ - collection of records with key-value pairs
+   - operate on objects, not relation
+ - avoids relational-object impedance mismatch by tight coupling db + objects
+   - single query for albums associated with artist
+     - array in application code, long string
+     - re-recorded data for albums with multiple artists
+
+vector data model
+ - 1-D array for nearest neighbor search
+
+    Album(id, name, year) -> Transformer -> Embedding (floating point numbers)
+     -> stored in vector db, vector index
+
+ - query: find albums similar to Liquid Swords -> Transformer -> vector index
+   - produces ranked list of matches
+
+ - embeddings + vector index comprise vector data model
+
+db are ubiquitous
+relational algebra define primitives for query processing
+
+2. Modern SQL
+---
  
