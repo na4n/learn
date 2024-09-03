@@ -97,4 +97,7 @@ relational algebra
  - product
    - relation that contains all possible combinations of tuples form input relations
  - join: relation that contains all tuples that are combination of two tuples with common values for one/more attribute
+
+ - describes high level steps to compute query
+
  
