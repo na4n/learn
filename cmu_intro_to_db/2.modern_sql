@@ -1,0 +1,15 @@
+Relational Langauges
+ - Data Manipulation Language <- queries/changes
+ - Data Definition Language <- constructs
+ - Data Control Language <- permissions, who's allowed to do what
+
+SQL is based on bags (duplicates) not sets (no duplicates)
+ - Relational Algebra is based on sets
+
+Aggregation Functions
+ - produce single value from bag of tuples
+ - AVG(col): average col val
+ - MIN(col): min col val
+ - MAX(col): max col val
+ - SUM(col): sum of val in col
+

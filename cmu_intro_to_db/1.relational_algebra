@@ -1,10 +1,3 @@
-Intro to DB Systems
----
-design/implmentation of dbms
-
-
-1. Relational Model & Algebra
----
 db: collection of ordered data modelling real-world
 dbms: software that allows apps to store/analyze information in a db
  - supports definition,creation,querying,update,administration of db according to data model
@@ -128,6 +121,3 @@ vector data model
 db are ubiquitous
 relational algebra define primitives for query processing
 
-2. Modern SQL
----
- 
