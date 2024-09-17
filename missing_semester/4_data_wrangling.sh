@@ -46,4 +46,15 @@ echo 'Disconnected from invalid user Disconnected from 84.211' | sed 's/.*Discon
 # | sort, sorts lines
 # | uniq, prints unqiue lines, uniq -c --> count duplicates and list count
 
+# | sort | uniq -c | sort -nk1,1 (sorts first column, stops at first colu) | tail -n10
 
+
+# awk is a column based stream processor
+# ^... | awk '{print $2}' | paste -sd --> prints second column, paste outputs into single line (-s) separated by comma (-d)
+# awk '$1 == 1 && $2 ~ /^c.*e%/ {print $0}' --> first as regular, second column starts with c ends with e
+
+# bc -l , berkeley calculator -l is standard math
+
+
+# xargs, lines of input --> args
+#
