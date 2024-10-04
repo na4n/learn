@@ -1,0 +1,39 @@
+version control (git)
+
+git file models
+ - directories are trees
+ - files are blobs
+
+ - trees can contain trees and blobs
+ - blobs are blobs
+
+ - root is the directory tracked
+
+version changes
+ - track changes to trees and blobs
+
+ - each commit contains information about trees and blobs
+   - also contains metadata: author, message
+	
+data structures
+
+type blob = array<byte>
+type tree = map<string, tree|blob>
+type commit = struct { parents: array<commit>, author: string, message: string, snapshot: tree }
+
+type object = blob | tree | commit
+objects = map<string, object>
+
+def store(o):
+    id = sha1(o)
+    objects[id] = o
+
+hash function takes big piece of data and turns into string
+
+def load(id):
+    return objects[id]
+
+references = map<string,string>
+
+
+git graph is immutable
