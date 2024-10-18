@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <title>PHP Test</title>
     </head>
@@ -23,26 +22,27 @@
                     'author' => 'Andy Weir',
                     'purchaseUrl' => 'https://example.org'
                 ]
-                ];
+            ];
 
-            function filterByAuthor(){
-                return '1';
+            function filterByAuthor($books, $author){
+                $filteredBooks = [];
+                foreach ($books as $book){
+                    if($book['author'] == $author){
+                        $filteredBooks[] = $book;
+                    }
+                }
+                return $filteredBooks;
             }
-
-            filterByAuthor();
         ?>
 
         <ul>
-            <?php foreach ($books as $book) : ?>
-                <?php if($book['author'] == 'Andy Weir') : ?>
-                    <a href="<?= $book['purchaseUrl'] ?>">
-                        <li> <?= $book['name'] . " " . $book['author']?> </li>
-                    </a>
-                <?php endif ?>
+            <?php foreach (filterByAuthor($books, 'Andy Weir') as $book) : ?>
+                <li> <?= $book['name'] . " " . $book['author']?> </li>
             <?php endforeach; ?>
         </ul>
 
-        <p> <?= filterByAuthor(); ?></p>
+        <p>There is nothing</p>
+
     </body>
 
 </html>

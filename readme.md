@@ -1,4 +1,11 @@
 # List
+
+## Ongoing
+* CMU - DBMS
+* compiler string to jsx
+* missing semester
+* php
+
 ## More Time
 * Design Patterns
 * Enterprise Software Stuff
