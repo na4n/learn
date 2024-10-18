@@ -50,4 +50,3 @@ All.empty = () => All(true)
 const sum = xs => 
     xs.reduce((acc, x) => acc + x, 0)
 
-console.log(result)
